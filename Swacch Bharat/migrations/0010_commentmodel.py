@@ -9,7 +9,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('SKAMMR', '0009_likemodel'),
+        ('Swacch Bharat', '0009_likemodel'),
     ]
 
     operations = [
@@ -20,8 +20,8 @@ class Migration(migrations.Migration):
                 ('comment_text', models.CharField(max_length=555)),
                 ('created_on', models.DateTimeField(auto_now_add=True)),
                 ('updated_in', models.DateTimeField(auto_now=True)),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='SKAMMR.PostModel')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='SKAMMR.UserModel')),
+                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Swacch Bharat.PostModel')),
+                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Swacch Bharat.UserModel')),
             ],
         ),
     ]
