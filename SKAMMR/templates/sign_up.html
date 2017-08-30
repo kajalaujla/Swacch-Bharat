@@ -1,0 +1,54 @@
+<div class="main">
+    <style>
+    body{
+        text-align:center;
+        }
+
+      h1{
+        color:green;
+        font-size:50px;
+        }
+
+   input{
+        border:None;
+        padding:12px;
+        border-bottom: 2px solid;
+        font-size:18px;
+        }
+
+   label{
+        color:green;
+        font-size:20px;}
+        input[type="submit"]{
+        background:green;
+        color:white;
+        font-size:18px;
+    }
+    </style>
+
+    <h1><center>Swacch Bharat</center></h1>
+    <h3><center><b>Sign Up</b></center></h3>
+    <h4>{{today}}</h4>
+    <h4>{{method}}</h4>
+
+</div>
+<form method="post">
+    {% csrf_token %}
+    <div>
+        <b><label for="username">username</label></b>
+        <input id="username" type="text" name="username" placeholder="username" value={{username}} >
+    </div></br>
+    <div>
+        <b><label for="name">name</label></b>
+        <input id="name" type="text" name="name" placeholder="name" value={{name}}>
+    </div></br>
+    <div>
+        <b><label for="email">email</label></b>
+        <input id="email" type="text" name="email" placeholder="email" value={{email}}>
+    </div></br>
+    <div>
+        <b><label for="password">password</label></b>
+        <input id="password" type="password" name="password" placeholder="password" value={{password}}>
+    </div></br>
+    <input type="submit" value="Sign Up">
+</form>

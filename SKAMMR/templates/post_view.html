@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+body{
+    text-align:center;
+    margin:250px;
+    }
+
+input[type="submit"]{
+      background:green;
+      color:white;
+    }
+
+input{
+    border:None;
+    padding:12px;
+    border-bottom: 2px solid;
+    }
+
+label{
+      color:green;
+     }
+
+textarea{
+        width:100%;
+        height:150px;
+        }
+
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title>post view page</title>
+</head>
+
+<body>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" class="btn btn-default" value="add a picture">
+</form>
+</body>
+</html>

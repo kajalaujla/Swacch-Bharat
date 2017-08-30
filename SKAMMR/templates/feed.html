@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<style>
+body{
+    margin :0 0 0 500px;
+    }
+
+  h1{
+    font-size:50px;
+    color:green;
+    align:center;
+    }
+
+ h4{
+    color:green;
+   }
+ h3{
+    color:teal;
+    font-family:arial;
+   }
+input[type = "submit"]{
+
+      font-size:14px;
+      background:green;
+      color:white;
+    }
+
+input{
+    border:None;
+    padding:12px;
+    border-bottom: 2px solid;
+    }
+
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title>your feed</title>
+</head>
+
+<body>
+<h1>Swacch Bharat</h1>
+    <a href="http://127.0.0.1:8000/post" style="color:green; align:center;"><p>create post</p></a>
+
+    {% for post in posts %}
+
+
+<h3>Posted by : {{post.user.username}}</h3>
+<h>{{post.created_on}}</h>
+
+<span>
+   <h4>Caption :</br> {{post.caption}}</h4>
+</span>
+
+<img src="{{post.image_url}}" height=300 width=300>
+
+<div style="display:inline-block">
+    {{post.like_count}} like this
+</div>
+
+
+<form method="post" action="/like">
+    {% csrf_token %}
+    <input type="hidden" name="post" value="{{post.id}}">
+    <input type="submit" class="btn btn-default" value="like">
+</form>
+
+<form method="post" action="/comment">
+    {% csrf_token %}
+
+    <input type="hidden" name="post" value="{{post.id}}">
+    <input type="text" name="comment_text" id="comment-text" placeholder="comment" value="comment">
+    {{comment_text}}
+    <input type="submit" class=" btn-default btn" value="Comment">
+
+</form><br>
+
+<div>
+    {%for comment in post.comments%}<p>
+     <b>{{comment.user.username}}
+        {{comment.created_on}}</b>
+        {{comment.comment_text}}</p>
+    {% endfor %}
+    <b><p>get posts by : <a href="/feed/?{{post.user.username}}" style="color:green">{{post.user.username}}</a></p></b>
+
+
+</div>
+
+{% endfor %}
+
+
+<form method="post" action="/log_out" style="margin:0 0 0 100px;">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-default" value="LogOut" >
+</form>
+</body>
+</html>

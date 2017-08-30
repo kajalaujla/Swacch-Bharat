@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<style>
+
+body{
+    text-align:center;
+    background:url("http://imgur.com/yTbDfBf");
+    font-family:helvetica;
+    }
+
+  h1{
+    color:green;
+    font-size:50px;
+    }
+  h2{
+    color:orange;
+    }
+input[type="submit"]{
+
+      background:green;
+      color:white;
+    }
+
+input{
+    border:None;
+    padding:12px;
+    border-bottom: 2px solid;
+    }
+
+label{
+color:green;
+font-size:20px;}
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1><center>Swacch Bharat</center></h1>
+<h2><center>Support Clean India !</center></h2>
+
+
+<form method="post">
+    {% csrf_token %}
+    <div>
+       <b> <label for="username">Username </label></b>
+        <input id="username" type="text" name="username" value={{username}}>
+    </div>
+
+    <div>
+        <b> <label for="password">Password</label></b>
+        <input id="password" type="password" name="password" value={{password}}>
+    </div></br>
+
+    <input type="submit" value="Log In">
+</form>
+<a href="#" style="color:teal;"> <p>forgot credential?</p></a><p style="color:green;">don't have acoount?<a href="http://127.0.0.1:8000/signup" style="color:#29b6f6;"> click here</a></p>
+</body>
+</html>
